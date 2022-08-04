@@ -1,0 +1,49 @@
+# Project: elevatorFinal
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = print_message.o state_trans.o control1.o control2.o getInputFILE.o input1.o input2.o main.o
+LINKOBJ  = print_message.o state_trans.o control1.o control2.o getInputFILE.o input1.o input2.o main.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = elevatorFinal.exe
+CXXFLAGS = $(CXXINCS) -g
+CFLAGS   = $(INCS) -g
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+print_message.o: print_message.c
+	$(CC) -c print_message.c -o print_message.o $(CFLAGS)
+
+state_trans.o: state_trans.c
+	$(CC) -c state_trans.c -o state_trans.o $(CFLAGS)
+
+control1.o: control1.c
+	$(CC) -c control1.c -o control1.o $(CFLAGS)
+
+control2.o: control2.c
+	$(CC) -c control2.c -o control2.o $(CFLAGS)
+
+getInputFILE.o: getInputFILE.c
+	$(CC) -c getInputFILE.c -o getInputFILE.o $(CFLAGS)
+
+input1.o: input1.c
+	$(CC) -c input1.c -o input1.o $(CFLAGS)
+
+input2.o: input2.c
+	$(CC) -c input2.c -o input2.o $(CFLAGS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
